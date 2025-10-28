@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Success Card — Open & Celebrate!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+
+  <style>
+    .style-script-regular {
+  font-family: "Style Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+    body {
+      font-family: "Style Script", cursive;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 25px;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(360deg, #800080, #ff00ff, #E6E6FA);
+      color: #fff;
+      overflow: hidden;
+      transition: background 2s ease;
+    }
+    #startScreen {
+      text-align: center;
+    }
+    .surprise-btn {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 25px;
+      font-family:'Times New Roman', Times, serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .surprise-btn:hover {
+      transform: rotate(-3deg) scale(1.05);
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    }
+    #cardContainer {
+      display: none;
+      flex-direction: column;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #00d9ff, #3b82f6);
+      padding: 30px;
+      padding-top: 150px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+    .card-img {  
+  position: absolute;     
+  top: 10px;
+  align-items: center;
+  width: 120px;               /* adjust size */
+  height: 150px;
+  object-fit: cover;          /* keeps aspect ratio */
+   border-radius: 50%;    /* makes it perfectly circular */
+  border: 3px solid white; 
+}
+    h1 {
+      color: #ffd166;
+      margin: 0 0 10px;
+    }
+    p {
+      color: #ffffff;
+      margin: 10px 0 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: purple;
+      top: 0;
+      animation: fall 3s linear forwards;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    /* FLASH SCREEN */
+    #flashScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(360deg, #800080, #ff00ff, #E6E6FA);
+  background-size: 300% 300%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Style Script", cursive;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 80px;
+  z-index: 10;
+  animation: 
+    gradientFlow 3.5s ease-in-out forwards,
+    fadeOutScreen 3.5s ease 3.5s forwards;
+}
+
+    #flashText {
+      opacity: 0;
+      animation: flashTextAnim 3s ease forwards;
+      text-shadow: 0 0 15px #ff9ae0, 0 0 25px #d946ef;
+    }
+
+    @keyframes flashTextAnim {
+      0% { opacity: 0; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1.1); }
+      80% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; }
+    }
+    @keyframes gradientFlow {
+  0% { background-position: 0% 50%; opacity: 1; }
+  50% { background-position: 100% 50%; opacity: 1; }
+  100% { background-position: 0% 50%; opacity: 1; }
+}
+
+    @keyframes fadeOutScreen {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @media (max-width: 700px) {
+  body {
+    font-size: 18px;
+  }
+
+  .surprise-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  #cardContainer {
+    padding: 15px 10px;
+    padding-top: 100px;
+    min-height: 250px;
+  }
+
+  .card-img {
+    width: 80px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  #flashScreen {
+    font-size: 40px;
+  }
+}
+/* Footer Base Styles */
+#siteFooter {
+  width: 100%;
+  background-blend-mode: normal;
+  color: #fff;
+  padding: 0px 0;
+  text-align: center;
+  font-family: 'Style Script', cursive;
+  font-size: 18px;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+  position: fixed;      /* fixed positioning */
+  bottom: 0;            /* stick to bottom */
+  left: 0;
+}
+
+
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  #siteFooter {
+    font-size: 16px;
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #siteFooter {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <!-- FLASH SCREEN -->
+  <div id="flashScreen">
+    <div id="flashText">🌟Success Wishes! 🌟</div>
+  </div>
+  <div id="startScreen">
+    <button class="surprise-btn" id="surpriseBtn">✨ Click here!</button>
+  </div>
+
+  <div id="cardContainer">
+  <img src="WhatsApp Image 2025-10-28 at 14.57.13_e8cf8a7f.jpg" alt="Success Icon" class="card-img">
+    <h1>Wshing you success in your exams, <span id="name">Nicole</span>! 🎊</h1>
+    <p style="font-family:'Times New Roman', Times, serif; font-style: italic;">May good luck and God's favour be with you as you prepare for and do your exams.
+        Don't forget to trust yourself and work hard because you can do this. You have beaten the odds before and 
+        it is a well known fact that you can do it again.<br>All the best as you do your very best
+    as you always have.</p>
+    <p style="padding-left: 80%; font-family:'Times New Roman', Times, serif; font-style: italic;">from Larry and Mum</p>
+  </div>
+  <footer id="siteFooter">
+  <div class="footer-content">
+    <p>&copy; 2025. All rights reserved.</p>
+    <div class="footer-links">
+      <p>Made and designed by Larry. Idea by Mum</p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    const flashScreen = document.getElementById('flashScreen');
+    const surpriseBtn = document.getElementById('surpriseBtn');
+    const startScreen = document.getElementById('startScreen');
+    const cardContainer = document.getElementById('cardContainer');
+    const body = document.body;
+
+    surpriseBtn.addEventListener('click', () => {
+      startScreen.style.display = 'none';
+      cardContainer.style.display = 'flex';
+      launchConfetti();
+
+      // Random gradient change
+      const colors = [
+        '#ff9a9e, #fad0c4',
+        '#a1c4fd, #c2e9fb',
+        '#fbc2eb, #a6c1ee',
+        '#ffecd2, #fcb69f'
+      ];
+      const random = colors[Math.floor(Math.random() * colors.length)];
+    });
+     // Show flash screen, then reveal start screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        flashScreen.style.display = 'none';
+        startScreen.style.display = 'block';
+      }, 3500);
+    });
+
+    function launchConfetti() {
+      for (let i = 0; i < 150; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        confetti.style.width = confetti.style.height = Math.random() * 8 + 4 + 'px';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+  </script>
+</body>
+</html>
